@@ -19,7 +19,6 @@ export function Banner({ subtitle, title, description, imageSrc, imageAlt }) {
   const btnLabel = isVariantA ? 'Solicita ahora' : 'Aplica ya';
   const containerClass = `${style.bannerContainer} ${isVariantA ? style.variantA : style.variantB}`;
 
-  // 1. EVENTO DE IMPRESIÓN (Al cargar la página)
   useEffect(() => {
     trackGTMEvent({
       action: 'view_banner',
@@ -28,7 +27,6 @@ export function Banner({ subtitle, title, description, imageSrc, imageAlt }) {
     });
   }, [variant, btnLabel]);
 
-  // 2. EVENTO DE CLIC EN EL CTA
   const handleCtaClick = () => {
     trackGTMEvent({
       action: 'click_cta',
