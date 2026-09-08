@@ -40,6 +40,22 @@ Todos los eventos de analítica se gestionan mediante un módulo centralizado (`
 
 1. **Clonar el repositorio e instalar dependencias:**
    ```bash
-  git clone https://github.com/Alexsandro-ux/bcp-landing-page.git
-  cd bcp-landing-page
-  npm install
+   git clone https://github.com/Alexsandro-ux/bcp-landing-page.git
+   cd bcp-landing-page
+   npm install
+   ```
+
+2. **Iniciar servidor de desarrollo:**
+   ```bash
+   npm run dev
+   ```
+
+3. **Compilar para producción:**
+   ```bash
+   npm run build
+   ```
+
+4. **Desplegar en GitHub Pages:**
+   ```bash
+   npm run deploy
+   ```
