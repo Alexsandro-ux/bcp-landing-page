@@ -1,0 +1,70 @@
+.bannerContainer {
+  width: 100%;
+  height: 350px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+.variantA {
+  background-color: #d9ebff;
+}
+
+.variantB {
+  background-color: #ffedd5;
+}
+
+.bannerContent {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.bannerText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bannerSubtitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.bannerTitle {
+  font-size: 2rem;
+  margin: 0.5rem 0;
+}
+
+.bannerDescription {
+  font-size: 1rem;
+}
+
+/* Controla que el botón no se extienda al 100% del contenedor en el Banner */
+.bannerBtn {
+  margin-top: 1.25rem;
+  max-width: 200px;
+}
+
+.bannerImage {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bannerImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
