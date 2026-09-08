@@ -1,19 +1,45 @@
-# React + Vite
+# Landing Page - Tarjetas de Crédito BCP (A/B Testing & GTM)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Landing page responsiva desarrollada con React y Vite para la selección de tarjetas de crédito BCP. El proyecto incluye un experimento A/B activo para evaluar la conversión de solicitudes y una arquitectura centralizada de eventos mediante Google Tag Manager (GTM).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Experimento A/B: Hipótesis y Mecánica
 
-## React Compiler
+* **Objetivo:** Evaluar el impacto visual de la propuesta de valor principal en la tasa de clics (CTR) hacia el formulario de solicitud.
+* **Variantes:**
+  * **Variante A (Control):** Enfoque tradicional basado en beneficios financieros generales.
+  * **Variante B (Test):** Enfoque dinámico orientado a beneficios de bienvenida rápidos (puntos/cashback).
+* **Persistencia:** La asignación de la variante se calcula aleatoriamente en la primera visita y se almacena en `sessionStorage` para mantener la consistencia durante toda la sesión del usuario.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+---
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+## Arquitectura de Tracking (GTM & dataLayer)
 
-## Expanding the ESLint configuration
+Todos los eventos de analítica se gestionan mediante un módulo centralizado (`src/utils/gtm.js`) que interactúa de manera directa con `window.dataLayer`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Evento | Disparador | Parámetros Enviados |
+| :--- | :--- | :--- |
+| `view_banner` | Carga del Banner Principal | `variant_id` (A o B) |
+| `click_cta` | Clic en botones de conversión | `cta_location`, `card_type` |
+| `select_card` | Selección de una tarjeta de crédito | `card_name`, `card_category` |
+| `submit_form` | Envío exitoso del formulario | `form_id`, `status` |
+
+---
+
+## Tecnologías Utilizadas
+
+* **Framework UI:** React 19 + Vite
+* **Compilador:** React Compiler (vía Babel)
+* **Estilos:** CSS Modules (Mobile-First)
+* **Despliegue:** GitHub Pages (`gh-pages`)
+
+---
+
+## Instalación y Despliegue Local
+
+1. **Clonar el repositorio e instalar dependencias:**
+   ```bash
+  git clone https://github.com/Alexsandro-ux/bcp-landing-page.git
+  cd bcp-landing-page
+  npm install
