@@ -17,6 +17,4 @@ export const trackGTMEvent = ({
   };
 
   window.dataLayer.push(payload);
-
-  console.log('[GTM Event Push]:', payload);
 };
